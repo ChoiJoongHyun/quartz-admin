@@ -1,0 +1,59 @@
+{
+  "name": "quartz-admin",
+  "version": "1.0.0",
+  "description": "For Developer",
+  "author": "ChoiJoongHyun <joonghyun0117@gmail.com>",
+  "dependencies": {
+    "vue": "^2.5.2",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "lodash": "^4.17.5",
+    "jquery": "^3.3.1",
+    "axios": "^0.18.0",
+    "vue-material": "^1.0.0-beta-8"
+  },
+  "devDependencies": {
+    "vue-template-compiler": "^2.5.2",
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "6.24.1",
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^1.1.4",
+    "style-loader": "^0.20.3",
+    "uglifyjs-webpack-plugin": "^1.1.1",
+    "url-loader": "^0.5.8",
+    "vue-loader": "^13.3.0",
+    "bootstrap": "^4.1.0",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1",
+    "webpack-merge": "^4.1.0"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/npm.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "scripts": {
+    "error": "webpack --display-error-details",
+    "start": "webpack-dev-server --env=dev --progress --inline",
+    "dev": "webpack --env=dev --progress --profile --colors",
+    "build": "webpack --env=prod --progress --profile --colors",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
