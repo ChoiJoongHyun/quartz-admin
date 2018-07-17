@@ -1,3 +1,4 @@
+<!--
 <template>
     <div id="app">
         <img src="/images/logo.png">
@@ -21,3 +22,4 @@
         margin-top: 60px;
     }
 </style>
+-->

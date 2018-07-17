@@ -5,7 +5,8 @@ const webpackMerge = require('webpack-merge');
 
 const config = {
     entry: {
-        app: path.resolve(__dirname, 'src/front/main.js')
+        app: path.resolve(__dirname, 'src/front/main.js'),
+        css: path.resolve(__dirname, 'src/front/css.js')
     },
     output: {
         path: path.resolve(__dirname, 'src/main/resources/static'),

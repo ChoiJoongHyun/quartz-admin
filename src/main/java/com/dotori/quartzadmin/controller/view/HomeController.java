@@ -17,4 +17,13 @@ public class HomeController {
 
         return "home/home";
     }
+
+    @GetMapping("layout")
+    public String layout (Model model) {
+
+        model.addAttribute("title", "Qrtz Scheduler CMS");
+        model.addAttribute("name", "최중현");
+
+        return "layout/default";
+    }
 }
