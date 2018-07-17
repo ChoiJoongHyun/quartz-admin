@@ -7,12 +7,14 @@
 package com.dotori.quartzadmin.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 
 @AllArgsConstructor
+@Getter
 @Embeddable
 public class SchedulerStateId implements Serializable {
 

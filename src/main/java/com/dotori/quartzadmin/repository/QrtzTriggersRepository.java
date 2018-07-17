@@ -13,4 +13,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface QrtzTriggersRepository extends JpaRepository<QrtzTriggers, TriggerId> {
 
+
+
+
+
 }

@@ -1,0 +1,29 @@
+/*
+ * Revision History
+ * Author                    Date                     Description
+ * ------------------       --------------            ------------------
+ *   joonghyun                2018-07-17
+ */
+package com.dotori.quartzadmin.service;
+
+import com.dotori.quartzadmin.domain.QrtzTriggers;
+import com.dotori.quartzadmin.repository.QrtzTriggersRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+@RequiredArgsConstructor
+@Service
+@Transactional
+public class TriggerService {
+
+    public final QrtzTriggersRepository qrtzTriggersRepository;
+
+    public List<QrtzTriggers> findCronTrigger() {
+
+        //TODO cron trigger 만.
+        return this.qrtzTriggersRepository.findAll();
+    }
+}
