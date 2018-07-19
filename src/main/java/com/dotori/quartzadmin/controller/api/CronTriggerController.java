@@ -7,8 +7,8 @@
 package com.dotori.quartzadmin.controller.api;
 
 import com.dotori.quartzadmin.controller.MappingConstant;
-import com.dotori.quartzadmin.controller.response.CronTriggerListResponse;
-import com.dotori.quartzadmin.facade.CronTriggerFacade;
+import com.dotori.quartzadmin.domain.QrtzTriggers;
+import com.dotori.quartzadmin.service.TriggerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,15 +21,15 @@ import java.util.List;
 @RequestMapping(MappingConstant.CronTrigger.ROOT)
 public class CronTriggerController {
 
-    public final CronTriggerFacade cronTriggerFacade;
+    public final TriggerService triggerService;
 
     /**
      * url mapping : {@link MappingConstant.CronTrigger#ROOT}
      * 스케쥴러 트리거 모두 제공
      * */
     @GetMapping
-    public List<CronTriggerListResponse> get() {
-        return this.cronTriggerFacade.get();
+    public List<QrtzTriggers> get() {
+        return this.triggerService.findCronTrigger();
     }
 
 }
