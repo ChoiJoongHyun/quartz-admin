@@ -1,6 +1,8 @@
 import Vue from "vue"
 import VueRouter from "vue-router";
-import Main from "../components/home/Main.vue"
+
+import About from "../pages/About.vue"
+import Trigger from "../pages/Trigger.vue"
 
 Vue.use(VueRouter);
 
@@ -9,7 +11,15 @@ export default new VueRouter({
     routes: [
         {
             path: '/',
-            component: Main
+            component: Trigger
+        },
+        {
+            path: '/about',
+            component: About
+        },
+        {
+            path: '/triggers',
+            component: Trigger
         }
     ]
 });

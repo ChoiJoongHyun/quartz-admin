@@ -1,12 +1,18 @@
+/* Copyright (c) 2018 ZUM Internet, Inc.
+ * All right reserved.
+ * http://www.zum.com
+ * This software is the confidential and proprietary information of ZUM
+ * , Inc. You shall not disclose such Confidential Information and
+ * shall use it only in accordance with the terms of the license agreement
+ * you entered into with ZUM.
 /*
  * Revision History
  * Author                    Date                     Description
  * ------------------       --------------            ------------------
- *   joonghyun                2018-07-17
+ *   joonghyun                2018-07-19
  */
 package com.dotori.quartzadmin.controller.api;
 
-import com.dotori.quartzadmin.controller.MappingConstant;
 import com.dotori.quartzadmin.domain.QrtzTriggers;
 import com.dotori.quartzadmin.service.TriggerService;
 import lombok.RequiredArgsConstructor;
@@ -17,19 +23,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RequiredArgsConstructor
+
 @RestController
-@RequestMapping(MappingConstant.CronTrigger.ROOT)
-public class CronTriggerController {
+@RequestMapping("/api/triggers")
+public class TriggerController {
 
-    public final TriggerService triggerService;
+    private final TriggerService triggerService;
 
-    /**
-     * url mapping : {@link MappingConstant.CronTrigger#ROOT}
-     * 스케쥴러 트리거 모두 제공
-     * */
     @GetMapping
     public List<QrtzTriggers> get() {
-        return this.triggerService.findCronTrigger();
+        return this.triggerService.findAll();
     }
-
 }

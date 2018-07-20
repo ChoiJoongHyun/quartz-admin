@@ -21,7 +21,7 @@ public class TriggerService {
 
     public final QrtzTriggersRepository qrtzTriggersRepository;
 
-    public List<QrtzTriggers> findCronTrigger() {
+    public List<QrtzTriggers> findAll() {
 
         //TODO cron trigger 만.
         return this.qrtzTriggersRepository.findAll();

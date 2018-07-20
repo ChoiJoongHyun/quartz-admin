@@ -15,15 +15,24 @@ public class HomeController {
         model.addAttribute("title", "Qrtz Scheduler CMS");
         model.addAttribute("name", "최중현");
 
-        return "home/home";
+        return "index";
     }
 
-    @GetMapping("layout")
-    public String layout (Model model) {
+    @GetMapping("about")
+    public String about (Model model) {
 
         model.addAttribute("title", "Qrtz Scheduler CMS");
         model.addAttribute("name", "최중현");
 
-        return "layout/default";
+        return "index";
+    }
+
+    @GetMapping("triggers")
+    public String triggers (Model model) {
+
+        model.addAttribute("title", "Qrtz Scheduler CMS");
+        model.addAttribute("name", "최중현");
+
+        return "index";
     }
 }
