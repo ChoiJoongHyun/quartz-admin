@@ -7,7 +7,7 @@
                 <th>스케쥴 명</th>
                 <th>JOB 이름</th>
                 <th>JOB 그룹</th>
-                <th>시작시간</th>
+                <th>실행시간</th>
 
                 <th>상태</th>
 
@@ -23,7 +23,7 @@
                 <td>{{item.trigger.jobName}}</td>
                 <td>{{item.trigger.jobGroup}}</td>
 
-                <td>{{item.trigger.startTime}}</td>
+                <td>{{item.trigger.startTime | moment("YYYY-MM-DD HH:mm:ss")}}</td>
 
                 <td>{{item.trigger.triggerState}}</td>
 
@@ -46,7 +46,7 @@
             }
         },
         created: function () {
-            axios.get('http://localhost:3001/api/simple/triggers').then(res => {
+            axios.get('/api/simple/triggers').then(res => {
                 this.list = res.data;
             }).catch(error => {
                 //TODO error

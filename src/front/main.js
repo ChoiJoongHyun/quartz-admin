@@ -1,16 +1,22 @@
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'jquery/dist/jquery.min'
+import 'moment/moment.js'
 
 import Vue from "vue"
 import Router from "./router/router"
-
+import VueMoment from "vue-moment"
 import App from "./App.vue"
+
+
+Vue.use(VueMoment);
 
 new Vue({
     el: '#main',
     render: h => h(App),
     router: Router
 });
+
+
 /*
 const app = new Vue({
     el: '#app',

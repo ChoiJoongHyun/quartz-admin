@@ -36,7 +36,7 @@
             }
         },
         created: function () {
-            axios.get('http://localhost:3001/api/triggers').then(res => {
+            axios.get('/api/triggers').then(res => {
                 this.list = res.data;
             }).catch(error => {
                 //TODO error
