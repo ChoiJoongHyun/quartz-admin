@@ -31,7 +31,8 @@ public class TriggerController {
     private final TriggerService triggerService;
 
     @GetMapping
-    public List<QrtzTriggers> get() {
+    public List<QrtzTriggers> all() {
         return this.triggerService.findAll();
     }
+
 }

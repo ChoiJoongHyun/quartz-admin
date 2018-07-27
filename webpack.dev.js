@@ -6,7 +6,7 @@ module.exports = {
         historyApiFallback: true,
         publicPath: '/static/',
         host: "0.0.0.0",
-        port: 3006,
+        port: 3001,
         proxy: {
             "**": "http://localhost:8091"
         }

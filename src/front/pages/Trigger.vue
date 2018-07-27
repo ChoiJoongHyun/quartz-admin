@@ -13,7 +13,7 @@
             </thead>
             <tbody>
 
-            <tr v-for="item in list" v-bind:key="item.jobName" >
+            <tr v-for="item in list"  >
                 <td>{{item.jobName}}</td>
                 <td>{{item.jobGroup}}</td>
                 <td>{{item.nextFireTime}}</td>
@@ -36,7 +36,7 @@
             }
         },
         created: function () {
-            axios.get('http://localhost:3000/api/triggers').then(res => {
+            axios.get('http://localhost:3001/api/triggers').then(res => {
                 this.list = res.data;
             }).catch(error => {
                 //TODO error

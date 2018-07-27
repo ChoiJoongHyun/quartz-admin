@@ -8,17 +8,21 @@ package com.dotori.quartzadmin.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @NoArgsConstructor
 @Getter
 @Entity
 @Table(name = "QRTZ_CRON_TRIGGERS")
+@NamedEntityGraph(
+        name = "QRTZ_CRON_TRIGGERS.FETCH.QRTZ_TRIGGERS",
+        attributeNodes = @NamedAttributeNode(value = "trigger")
+)
 public class QrtzCronTriggers implements Serializable {
 
     @EmbeddedId
@@ -29,4 +33,12 @@ public class QrtzCronTriggers implements Serializable {
 
     @Column(name = "TIME_ZONE_ID")
     private String timeZoneId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumns({
+            @JoinColumn(name = "SCHED_NAME", referencedColumnName = "SCHED_NAME", insertable = false, updatable = false),
+            @JoinColumn(name = "TRIGGER_NAME", referencedColumnName = "TRIGGER_NAME", insertable = false, updatable = false),
+            @JoinColumn(name = "TRIGGER_GROUP", referencedColumnName = "TRIGGER_GROUP", insertable = false, updatable = false),
+    })
+    private QrtzTriggers trigger;
 }

@@ -6,6 +6,8 @@
  */
 package com.dotori.quartzadmin.service;
 
+import com.dotori.quartzadmin.domain.QrtzCronTriggers;
+import com.dotori.quartzadmin.domain.QrtzSimpleTriggers;
 import com.dotori.quartzadmin.domain.QrtzTriggers;
 import com.dotori.quartzadmin.repository.QrtzTriggersRepository;
 import lombok.RequiredArgsConstructor;
@@ -25,5 +27,16 @@ public class TriggerService {
 
         //TODO cron trigger 만.
         return this.qrtzTriggersRepository.findAll();
+    }
+
+    public List<QrtzCronTriggers> findCronTrigger() {
+
+        //return this.qrtzTriggersRepository.findAll();
+        return null;
+    }
+
+    public List<QrtzSimpleTriggers> findSimpleTrigger() {
+
+        return null;
     }
 }

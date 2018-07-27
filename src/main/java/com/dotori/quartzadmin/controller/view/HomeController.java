@@ -9,25 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class HomeController {
 
-    @GetMapping
-    public String home (Model model) {
-
-        model.addAttribute("title", "Qrtz Scheduler CMS");
-        model.addAttribute("name", "최중현");
-
-        return "index";
-    }
-
-    @GetMapping("about")
-    public String about (Model model) {
-
-        model.addAttribute("title", "Qrtz Scheduler CMS");
-        model.addAttribute("name", "최중현");
-
-        return "index";
-    }
-
-    @GetMapping("triggers")
+    @GetMapping(value = { "", "triggers", "cron/triggers", "simple/triggers", "about" })
     public String triggers (Model model) {
 
         model.addAttribute("title", "Qrtz Scheduler CMS");
