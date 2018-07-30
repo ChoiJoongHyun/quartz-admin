@@ -11,12 +11,8 @@
 
     <title>Dashboard Template for Bootstrap</title>
 
-    <!-- Bootstrap core CSS -->
-    <#--<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">-->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
-    <link href="/css/dashboard.css" rel="stylesheet">
+    <#--<link href="/css/dashboard.css" rel="stylesheet">-->
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -29,6 +25,8 @@
     <![endif]-->
 
 
+    <link rel="stylesheet" type="text/css" href="/static/css/app.css">
+    <link href="/css/dashboard.css" rel="stylesheet">
 </head>
 
 <body>

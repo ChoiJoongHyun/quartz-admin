@@ -27,4 +27,9 @@ public class CronTriggerController {
     public List<QrtzCronTriggers> all() {
         return this.cronTriggerService.findAll();
     }
+
+    @GetMapping("/group")
+    public List<String> jobGroup() {
+        return this.cronTriggerService.findJobGroups();
+    }
 }

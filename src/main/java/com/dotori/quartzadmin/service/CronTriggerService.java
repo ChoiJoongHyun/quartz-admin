@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 
@@ -24,5 +25,15 @@ public class CronTriggerService {
 
     public List<QrtzCronTriggers> findAll() {
         return this.qrtzCronTriggersRepository.findAll();
+    }
+
+    public List<String> findJobGroups() {
+
+        List<QrtzCronTriggers> triggers = this.findAll();
+
+        return triggers.stream()
+                .map(trigger -> trigger.getTrigger().getJobGroup())
+                .distinct()
+                .collect(Collectors.toList());
     }
 }
