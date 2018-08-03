@@ -8,9 +8,11 @@
 
                 <div>
                     JOB 그룹 :
-                    <select class="selectpicker">
+                    <select v-model="selected">
+                        <!--<option disabled value="">Please select one</option>-->
                         <option v-for="item in filter.group"  > {{item}} </option>
                     </select>
+                    <!--<span>선택함: {{ selected }}</span>-->
                 </div>
             </div>
         </div>
@@ -61,6 +63,7 @@
         },
         data() {
             return {
+                selected: '',
                 list: [],
                 filter: {
                     group: []

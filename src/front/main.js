@@ -1,8 +1,6 @@
 import 'jquery/dist/jquery.min'
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-select/dist/js/bootstrap-select.js'
-import 'bootstrap-select/dist/css/bootstrap-select.css'
 import 'moment/moment.js'
 
 
