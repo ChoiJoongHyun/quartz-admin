@@ -8,9 +8,9 @@
 
                 <div>
                     JOB 그룹 :
-                    <select v-model="selected">
-                        <!--<option disabled value="">Please select one</option>-->
-                        <option v-for="item in filter.group"  > {{item}} </option>
+                    <select v-model="selected" v-on:change="selectedJobGroup">
+                        <option value = null> 모든그룹 </option>
+                        <option v-for="item in filter.group" v-bind:value="item"> {{item}} </option>
                     </select>
                     <!--<span>선택함: {{ selected }}</span>-->
                 </div>
@@ -61,9 +61,26 @@
         components: {
 
         },
+        methods: {
+            selectedJobGroup: function() {
+                axios.get('/api/cron/triggers',
+                    {
+                        params: {
+                            jobGroup : this.selected
+                        }
+                    })
+                    .then(res => {
+                        this.list = res.data;
+                    })
+                    .catch(error => {
+                        //TODO error
+                        console.log(error);
+                    })
+            }
+        },
         data() {
             return {
-                selected: '',
+                selected: null,
                 list: [],
                 filter: {
                     group: []

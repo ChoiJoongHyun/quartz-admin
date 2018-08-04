@@ -17,4 +17,7 @@ public interface QrtzCronTriggersRepository extends JpaRepository<QrtzCronTrigge
 
     @EntityGraph(value = "QRTZ_CRON_TRIGGERS.FETCH.QRTZ_TRIGGERS" , type=EntityGraph.EntityGraphType.FETCH)
     List<QrtzCronTriggers> findAll();
+
+    @EntityGraph(value = "QRTZ_CRON_TRIGGERS.FETCH.QRTZ_TRIGGERS" , type=EntityGraph.EntityGraphType.FETCH)
+    List<QrtzCronTriggers> findByTrigger_JobGroup(String jobGroup);
 }
