@@ -9,7 +9,7 @@
                 <div>
                     JOB 그룹 :
                     <select v-model="selected" v-on:change="selectedJobGroup">
-                        <option value = null> 모든그룹 </option>
+                        <option value = ""> 모든그룹 </option>
                         <option v-for="item in filter.group" v-bind:value="item"> {{item}} </option>
                     </select>
                     <!--<span>선택함: {{ selected }}</span>-->
@@ -80,7 +80,7 @@
         },
         data() {
             return {
-                selected: null,
+                selected: "",
                 list: [],
                 filter: {
                     group: []

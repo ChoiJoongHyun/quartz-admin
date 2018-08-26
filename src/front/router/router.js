@@ -13,7 +13,11 @@ export default new VueRouter({
     routes: [
         {
             path: '/',
-            component: CronTrigger
+            component: Trigger
+        },
+        {
+            path: '/triggers',
+            component: Trigger
         },
         {
             path: '/cron/triggers',

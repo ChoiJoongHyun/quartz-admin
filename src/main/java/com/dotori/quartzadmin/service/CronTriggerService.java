@@ -26,13 +26,13 @@ public class CronTriggerService {
     private final QrtzCronTriggersRepository qrtzCronTriggersRepository;
 
     //TODO queryDsl filter 처리
-    public List<QrtzCronTriggers> findByFilter(final CronTriggerFilterRequest request) {
+    public List<QrtzCronTriggers> findByFilter(final CronTriggerFilterRequest filter) {
 
-        if(StringUtils.isEmpty(request.getJobGroup())) {
+        if(StringUtils.isEmpty(filter.getJobGroup())) {
             return this.qrtzCronTriggersRepository.findAll();
         }
 
-        return this.qrtzCronTriggersRepository.findByTrigger_JobGroup(request.getJobGroup());
+        return this.qrtzCronTriggersRepository.findByTrigger_JobGroup(filter.getJobGroup());
     }
 
     public List<String> findJobGroups() {

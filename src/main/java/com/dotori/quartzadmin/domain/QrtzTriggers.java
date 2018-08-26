@@ -6,13 +6,11 @@
  */
 package com.dotori.quartzadmin.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -45,7 +43,8 @@ public class QrtzTriggers implements Serializable {
     private String triggerState;
 
     @Column(name = "TRIGGER_TYPE")
-    private String triggerType;
+    @Enumerated(EnumType.STRING)
+    private TriggerType triggerType;
 
     @Column(name = "START_TIME")
     private Long startTime;
@@ -61,12 +60,4 @@ public class QrtzTriggers implements Serializable {
 
     @Column(name = "JOB_DATA")
     private String jobData;
-
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "trigger")
-    private List<QrtzCronTriggers> cronTriggersList;
-
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "trigger")
-    private List<QrtzSimpleTriggers> simpleTriggersList;
 }
