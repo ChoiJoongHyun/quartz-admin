@@ -2,6 +2,7 @@ package com.dotori.quartzadmin.controller.api.request;
 
 import com.dotori.quartzadmin.domain.TriggerType;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -9,6 +10,7 @@ import lombok.Setter;
  */
 @Setter
 @Getter
+@NoArgsConstructor
 public class TriggerFilterRequest {
 
     private String jobGroup;
