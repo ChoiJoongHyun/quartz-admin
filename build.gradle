@@ -24,6 +24,34 @@ repositories {
 }
 
 
+sourceSets {
+    main {
+        java {
+            srcDirs 'src/main/java', 'src/main/generated'
+        }
+    }
+}
+
+task generateQueryDSL(type: JavaCompile, group: 'build', description: 'Generates the QueryDSL query types') {
+    file(new File(projectDir, "/src/main/generated")).deleteDir()
+    file(new File(projectDir, "/src/main/generated")).mkdirs()
+    source = sourceSets.main.java
+    classpath = configurations.compile + configurations.compileOnly
+    options.compilerArgs = [
+            "-proc:only",
+            "-processor", "com.querydsl.apt.jpa.JPAAnnotationProcessor"
+    ]
+    destinationDir = file('src/main/generated')
+}
+
+compileJava {
+    dependsOn generateQueryDSL
+}
+
+clean.doLast {
+    file(new File(projectDir, "/src/main/generated")).deleteDir()
+}
+
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-aop')
     compile('org.springframework.boot:spring-boot-starter-cache')
@@ -34,7 +62,9 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-quartz')
 
-
+    compile('com.querydsl:querydsl-apt:4.2.1')
+    compile('com.querydsl:querydsl-jpa:4.2.1')
+    compile('com.querydsl:querydsl-core:4.2.1')
 
     runtime('org.springframework.boot:spring-boot-devtools')
     runtime('com.h2database:h2')
@@ -42,4 +72,5 @@ dependencies {
     compileOnly('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.springframework.security:spring-security-test')
+
 }
