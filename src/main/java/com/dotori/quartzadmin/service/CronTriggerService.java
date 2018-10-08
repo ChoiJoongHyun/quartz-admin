@@ -25,9 +25,7 @@ public class CronTriggerService {
 
     private final QrtzCronTriggersRepository qrtzCronTriggersRepository;
 
-    //TODO queryDsl filter 처리
     public List<QrtzCronTriggers> findByFilter(final CronTriggerFilterRequest filter) {
-
         if(StringUtils.isEmpty(filter.getJobGroup())) {
             return this.qrtzCronTriggersRepository.findAll();
         }
